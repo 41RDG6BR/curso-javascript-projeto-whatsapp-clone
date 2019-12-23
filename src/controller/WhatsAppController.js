@@ -59,21 +59,33 @@ class WhatsAppController{
             this.closeAllLeftPanel();
             this.el.panelEditProfile.show();
             this.el.panelEditProfile.addClass("open");
-            console.log("open")
-        })
+            console.log("open");
+        });
 
         this.el.btnNewContact.on("click", e=>{
-            this.closeAllLeftPanel()
+            this.closeAllLeftPanel();
             this.el.panelAddContact.show();
             this.el.panelAddContact.addClass("open");
-        })
+        });
 
         this.el.btnClosePanelEditProfile.on("click", e=>{
             this.el.panelEditProfile.removeClass("open");
-            console.log("close")
-        })
+            console.log("close");
+        });
         this.el.btnClosePanelAddContact.on("click", e =>{
             this.el.panelAddContact.removeClass("open");
+        });
+        this.el.photoContainerEditProfile.on("click", e=>{
+            this.el.inputProfilePhoto.click();
+        });
+        this.el.inputNamePanelEditProfile.on("keypress", e=>{
+            if(e.key == "Enter"){
+                e.preventDefault();
+                this.el.btnSavePanelEditProfile.click();
+            }
+        });
+        this.el.btnSavePanelEditProfile.on('click', e=>{
+            console.log(this.el.inputNamePanelEditProfile.innerHTML);
         })
     }
 
